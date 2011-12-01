@@ -1,0 +1,32 @@
+ATmega328 / Arduino I/O usage - Nixie Clock
+
+Arduino   AVR       NixClock  Wire      Alternate   Nixie Clock
+Pin       Pin       Pin       Color     Function    Usage
+--------  --------  --------  --------  ----------  ----------------------------
+0         PD0 (2)                       RXD         Debug port (USB)
+1         PD1 (3)                       TXD         Debug port (USB)
+2         PD2 (4)             Yel/Brn   INT0        Encoder 0 button
+3         PD3 (5)             Yel/Red   INT1        Encoder 1 button
+4         PD4 (6)             Yel/Grn   XCK/T0      Encoder 0 A phase
+5         PD5 (11)            Yel/Blu   OC0B/T1     Encoder 0 B phase
+6         PD6 (12)            Yel/Mag   OC0A/AIN0   Encoder 1 A phase
+7         PD7 (13)            Yel/Vio   AIN1        Encoder 1 B phase
+
+8         PB0 (14)            Green     CLKO/ICP1   Button Enable (pseudo-ground)
+9         PB1 (15)            Red/Blk   OC1A        Alarm "audio" out
+10        PB2 (16)   7        W/Green   OC1B/SS     Driver latch
+11        PB3 (17)   6        Green     OC2A/MOSI   Driver data
+12        PB4 (18)   4:opt    W/LtBlue  MISO        Button 0
+13        PB5 (19)   8        Yellow    SCK         Driver data clock
+
+A0        PC0 (23)   5        W/Magent  ADC0        Driver blanking
+A1        PC1 (24)   12:opt   W/DkBlue  ADC1        Button 1
+A2        PC2 (25)            W/Brown   ADC2        Button 2
+A3        PC3 (26)            W/Red     ADC3        Button 3
+A4        PC4 (27)            W/LtGrn   ADC4        Button 4 (RTC I2C SDA?)
+A5        PC5 (28)            W/Violet  ADC5        Button 5 (RTC I2C SCK?)
+
+Gnd       Gnd(8,22)  14       Black     Gnd         Ground/Vss
++5V       Vcc (7)    1        Red       Vcc         +5V/Vdd/Vcc
+
+jensen@peterjjensen.com
