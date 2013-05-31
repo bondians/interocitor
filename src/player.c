@@ -678,7 +678,7 @@ uint8_t player_is_stopped(void)
  ******************************************************************************/
 
 // C major:                                A  B  C  D  E  F  G
-static int8_t c_major_scale[7] PROGMEM = { 9,11, 0, 2, 4, 5, 7};
+static const int8_t c_major_scale[7] PROGMEM = { 9,11, 0, 2, 4, 5, 7};
 
 #define NOTE_IS_REST    0xFF
 
