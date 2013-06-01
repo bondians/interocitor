@@ -154,13 +154,13 @@ void time_date_init(void)
     time_t time;
     date_t date;
 
-    time.hour = 12;
+    time.hour = 10;
     time.minute = 0;
     time.second = 0;
     set_time_24(&time);
 
-    date.day = 1;
-    date.month = 1;
+    date.day = 27;
+    date.month = 6;
     date.year = 2009;
     set_date(&date);
 }    

@@ -700,9 +700,9 @@ void ClockDisplay(void)
     time_t time;
     date_t date;
     uint8_t am_pm;
-    uint8_t set;
-    clock_mode_t display_mode = MODE_CLOCK_24;
-    clock_mode_t clock_mode = MODE_CLOCK_24;
+    uint8_t set = 0;
+    clock_mode_t display_mode = MODE_CLOCK_12;
+    clock_mode_t clock_mode = MODE_CLOCK_12;
 
 //  nixie_out('\f',&primary);
     nixie_out('\f',&secondary);
