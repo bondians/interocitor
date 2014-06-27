@@ -39,7 +39,7 @@ main = shakeArgs shakeOptions $ do
         when buildExists $ removeFilesAfter buildDir ["//*"]
     
     phony "flash" $ do
-        avrdude avrdudeFlags (project <.> "hex") usbPort
+        avrdude "flash" avrdudeFlags (project <.> "hex") usbPort
     
     "*.hex" *> withSource (buildFile "elf") (avr_objcopy "ihex" hexFlashFlags)
     "*.eep" *> withSource (buildFile "elf") (avr_objcopy "ihex" hexEepromFlags)
