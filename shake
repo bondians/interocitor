@@ -13,7 +13,7 @@ import Development.Shake.FilePath
 project         = "NixieClock"
 mcu             = "atmega328p"
 usbPort         = "/dev/tty.usbserial-A70075bH"
-avrdudeFlags    = ["-pm328p", "-cstk500v1", "-b57600", "-D"]
+avrdudeFlags    = ["-c", "stk500v1", "-b", "57600", "-P", usbPort]
 
 srcDir          = "src"
 buildDir        = "build" -- NB: "clean" will blast this dir.
@@ -39,7 +39,7 @@ main = shakeArgs shakeOptions $ do
         when buildExists $ removeFilesAfter buildDir ["//*"]
     
     phony "flash" $ do
-        avrdude "flash" avrdudeFlags (project <.> "hex") usbPort
+        avrdude mcu avrdudeFlags (w Flash (project <.> "hex"))
     
     "*.hex" *> withSource (buildFile "elf") (avr_objcopy "ihex" hexFlashFlags)
     "*.eep" *> withSource (buildFile "elf") (avr_objcopy "ihex" hexEepromFlags)
